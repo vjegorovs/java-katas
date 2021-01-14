@@ -29,9 +29,6 @@ public class Exercise1Test extends ClassicOnlineStore {
          */
         Predicate<Customer> richCustomerCondition = customer -> customer.getBudget() > 10000;
 
-        Predicate<String> isEmptyString = string -> string.length() == 0; // .isEmpty
-        assertTrue(isEmptyString.test("") == true);
-        assertTrue(isEmptyString.test("s") == false);
         Stream<Customer> richCustomerStream = customerList.stream().filter(customer -> richCustomerCondition.test(customer));
 
         assertTrue("Solution for Predicate should be lambda expression", AssertUtil.isLambda(richCustomerCondition));
